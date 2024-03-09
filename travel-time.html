@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+    
+	<html lang="en">
+
+    <head>
+
+        <meta charset="UTF-8">
+
+            <!-- Author: Brendan Dileo, 000879513 -->
+        
+			<title>Travel Times</title>
+
+            <link rel ="stylesheet" type = "text/css" href = "css/traveltime.css">
+
+			<style>
+
+                body {
+                    margin: 0;
+                }
+
+                main {
+					margin: 0 10em ;
+				}
+
+                .headergrid { /* Header Grid, two rows, four columns */
+                    display: grid;
+                    grid-template-rows: auto;
+                    grid-template-columns: 1fr 1fr 1fr 1fr;
+                }
+
+                .traveltimeheader {
+                    grid-row: 1;
+                    grid-column: 1;
+                }
+
+                .signinheader {
+                    grid-row: 1;
+                    grid-column: 4;
+                    margin-top: 12px;
+                }
+
+                .signinheader p {
+                    padding: 5px 15px; 
+                    background-color: #0172BA;
+                    color: white; 
+                    border: 1px solid #0172BA;
+                    border-radius: 20px;
+                    text-align: center; 
+                    cursor: pointer; 
+                    float: right;
+                }
+
+                .signinheader p:hover {
+                    background-color: #089247;
+                }
+
+                .gridcontainer { /* Main Grid, one row, three columns */
+                    display: grid;
+                    grid-template-rows: 4fr;
+                    grid-template-columns: 1.5fr 4fr 1.5fr;
+                    grid-gap: 25px 25px;
+                }
+
+                .pictureSetFlex {
+                    grid-row: 1;
+                    grid-column: 3;
+                    display: flex;
+                    flex-direction: column;
+                    float: left;
+                }
+
+                .pictureSetFlex img {
+                    width: 200px;
+                    max-width: 200px;
+                    margin-top: 20px;
+                    margin-bottom: 30px; 
+                    float: left;
+                }
+
+                .canoe {
+                    grid-row: 1;
+                    grid-column: 1;
+                }
+
+                .canoe h3 {
+                    background-color: #0172BA;
+                    color: white;
+                    text-align: center;
+                    font-family: Verdana, Geneva, Tahoma, sans-serif;
+                }
+
+                .canoeType {
+                    grid-row: 1;
+                    grid-column: 1;
+                }
+
+                .hiking {
+                    grid-row: 1;
+                    grid-column: 2;
+                    float: left;
+                }
+
+                .hiking h3 {
+                    background-color: #0172BA;
+                    color: white;
+                    text-align: center;
+                    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+                }
+                .floatleft {
+                    float: left;
+                    margin: auto 10px;
+			    }
+
+                .floatright {
+                    float: right;
+                    margin: auto 10px;
+			    }
+
+                .trails {
+                    grid-row: 1;
+                    grid-column: 2;
+                    align-items: center;
+                    border: 2px solid black;
+                    background-color: #CEECFE; 
+                }
+
+                .trailsGrid {
+                    display: grid;
+                    grid-template-rows: 0.3fr 0.3fr;
+                    grid-template-columns: 0.5fr 0.5fr;
+                }
+
+                .listOne {
+                    grid-row: 2;
+                    grid-column: 1;
+                    height: 100px;
+                    margin-top: 0;
+                    margin-bottom: 10px;
+                }
+
+                .listTwo {
+                    grid-row: 2;
+                    grid-column: 2;
+                    border-left: 1px solid black;
+                    border-color: grey;
+                    margin-top: 0;
+                    margin-bottom: 10px;
+                }
+
+                .trailsTitle {
+                    grid-row: 1;
+                    grid-column: 1 / span 2;
+                    align-items: center;
+                    text-align: center;
+                    margin-top: 0;
+                    margin-bottom: 0;
+                    font-size: 25px;
+                }
+
+                .galleryTitle {
+                    text-align: center;
+                    background-color: #0172BA;
+                    color: white;
+                }
+
+                .flexcontainer {
+                    display: flex;
+                    flex-wrap: wrap;
+                    justify-content: center;
+                }
+
+                .flexitem {
+                    border: 1px solid black;
+                    margin: 0 10px 10px 0;
+                }
+
+                .flexitem figure {
+                    width: 100%;
+                    height: 100%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    margin: 0;
+                    overflow: hidden;
+                }
+
+                .flexitem img {
+                    width: 100%;
+                    height: 100%;
+                }
+
+                .credits {
+                    border-top: 2px solid black ;
+                    border-bottom: 2px solid black;
+                    border-color: #CEECFE;
+                    text-align: center;
+                    margin: 20px 25px;
+                }
+
+                .creditText {
+                    border-bottom: 2px solid black;
+                    text-align: center;
+                }
+
+                .aboutUs {
+                    grid-row: 1;
+                    grid-column: 1;
+                }
+
+                .aboutUs h4 {
+                    border-bottom: 2px solid black;
+                    border-color: #0172BA;
+                    margin-bottom: 0;
+                }
+
+                .aboutUs p {
+                    margin-top: 0;
+                }
+
+                .travel {
+                    grid-row: 2;
+                    grid-column: 2;
+                    text-align: center;
+                }
+
+                .travel h3 {
+                    font-size: 20px;
+                    color: #0172BA;
+                    margin-bottom: 0;
+                }
+
+                .travelMedia a {
+                    text-decoration: none;
+                }
+
+                .seminars {
+                    grid-row: 1;
+                    grid-column: 3;
+                }
+
+                .seminars h4 {
+                    border-bottom: 2px solid black;
+                    border-color: #0172BA;
+                    margin-bottom: 0;
+                }
+
+                .seminars p {
+                    margin-top: 0;
+                }
+
+                .countries {
+                    grid-row: 3;
+                    grid-column: 3;
+                    margin-bottom: 5px;
+                }
+
+                .countries h4 {
+                    border-bottom: 2px solid black;
+                    border-color: #0172BA;
+                    margin-bottom: 0;
+                }
+
+                .countries p {
+                    margin-top: 0;
+                }
+
+            </style>
+
+    </head>
+
+            <header>
+                <div class="headergrid">
+
+                    <div class="traveltimeheader">
+                        <figure>
+                            <img src="images/logos/traveltimehorizontal.png" alt="Travel Time Logo">
+                        </figure>
+                    </div> <!--Ends traveltimeheader class-->
+
+                    <div class="signinheader">
+                        <p>
+                            Sign-in 
+                        </p>
+                    </div> <!--Ends signinheader class-->
+
+                </div> <!--Ends headergrid class-->
+
+            </header>
+
+            <nav>
+                <ul>
+                    <li> <a href="#aboutUs" title="About Us">About us</a></li>
+                    <li> <a href="#countries" title="Countries">Countries</a></li>
+                    <li> <a href="#seminars" title="Seminars">Seminars</a></li>
+                    <li> <a href="#gallery" title="Gallery">Photos</a></li>
+                    <li> <a href="#trails" title="Trails">Travel</a></li> <!--Its going to the trails class instead of travle time because the other options already direct down there.-->
+                </ul>
+            </nav>
+
+            <main>
+                <div class="gridcontainer">
+
+                    <div class="pictureSetFlex">
+
+                        <img src="images/ads/mountainsThinkBig.jpg" alt="Think Big Mountains Picture">
+                        <img src="images/ads/greymountain.jpg" alt="Grey Mountain Picture">
+     
+                    </div>
+
+                    <div class="canoe">
+                        
+                        <h3>
+                            Canoeing
+                        </h3>
+
+                        <p>
+                            Canoeing is an activity which involves paddling a canoe with a single-bladed paddle. Common meanings of the term are limited to when the canoeing is the central purpose of the activity. Broader meanings include when it is combined with other activities such as canoe camping, or where canoeing is merely a transportation method used to accomplish other activities. Most present-day canoeing is done as or as a part of a sport or recreational activity. In some parts of Europe canoeing refers to both canoeing and kayaking, with a canoe being called an open canoe. 
+
+                        </p>
+
+                        <p>
+                            Canoes were developed by cultures all over the world, including some designed for use with sails or outriggers. Until the mid-1800s the canoe was an important means of transport for exploration and trade, and in some places it still is used as such, perhaps with the addition of an outboard motor. Where the canoe played a key role in history, such as the northern United States, Canada, and New Zealand, it remains an important theme in popular culture.
+                        </p>
+
+                        <h3>
+                            Types of Canoes
+                        </h3>
+
+                        <ul>
+                            <li>Sprint</li>
+                            <li>Slalom and wildwater</li>
+                            <li>Marathon</li>
+                            <li>General Recreation</li>
+                            <li>Touring and camping</li>
+                            <li>Freestyle</li>
+                        </ul>
+
+                    </div> <!--Ends canoe class!-->
+
+                    <div class="hiking">
+
+                        <h3>
+                            Hiking
+                        </h3>
+
+                        <div class="mountain">
+
+                        <img src="images/hiking150/hikingmountains150.jpg" alt="Paris Image" class="floatleft">
+
+                        <p>
+                            In the United States, Canada, the Republic of Ireland, and United Kingdom, hiking means walking outdoors on a trail, or off trail, for recreational purposes. A day hike refers to a hike that can be completed in a single day. However, in the United Kingdom, the word walking is also used, as well as rambling, while walking in mountainous areas is called hillwalking. In Northern England, Including the Lake District and Yorkshire Dales, fellwalking describes hill or mountain walks, as fell is the common word for both features there.
+                        </p>
+
+                    </div> <!--Ends hiking class-->
+                    
+                    <div class="hiker">
+
+                        <img src="images/hiking150/winterhiker150.jpg" alt="Paris Image" class="floatright">
+
+                        <p>
+                            Hiking sometimes involves bushwhacking and is sometimes referred to as such. This specifically refers to difficult walking through dense forest, undergrowth, or bushes, where forward progress requires pushing vegetation aside. In extreme cases of bushwhacking, where the vegetation is so dense that human passage is impeded, a machete is used to clear a pathway. The Australian term bushwalking refers to both on and off-trail hiking. Common terms for hiking used by New Zealanders are tramping (particularly for overnight and longer trips), walking or bushwalking. Trekking is the preferred word used to describe multi-day hiking in the mountainous regions of India, Pakistan, Nepal, North America, South America, Iran, and the highlands of East Africa. Hiking a long-distance trail from end-to-end is also referred to as trekking and as thru-hiking in some places. In North America, multi-day hikes, usually with camping, are referred to as backpacking. 
+                        </p>
+
+                    </div> <!--Ends hiker class -->
+
+                    <div class="trails" id="trails">
+
+                        <div class="trailsGrid">
+
+                            <h4 class="trailsTitle">
+                                Trails - 2023/2024
+                            </h4>
+
+                            <ul class="listOne">
+                                <p>
+                                    <strong>National Parks (partial list)</strong>
+                                </p>
+
+                                    <li>Banff National Park</li>
+                                    <li>Cape Breton Highlands National Park</li>
+                                    <li>Point Peelee National Park</li>
+                            </ul>
+
+                            <ul class="listTwo">
+                                <p>
+                                    <strong>Provincial Parks (partial list)</strong>
+                                </p>
+
+                                    <li>Bronte Creek Provincial Park</li>
+                                    <li>Rock Point Provincial Park</li>
+                                    <li>Sekirk Provincial Park</li>
+                            </ul>
+
+                        </div>
+
+                    </div> <!--End of trails class-->
+
+                </div> <!--Ends gridcontainer class-->
+            </main>
+
+                    <div class="gallery" id="gallery">
+
+                        <h3 class="galleryTitle">
+                            Gallery
+                        </h3>
+
+                        <div class="flexcontainer">
+
+                            <div class="flexitem">
+
+                                <figure>
+            
+                                    <img src="images/addedbybrendan/cottagelife.jpeg" alt="Picture of Vermont Lake">
+            
+                                </figure>
+            
+                            </div><!--End Div Item -->
+                            
+                            <div class="flexitem">
+
+                                <figure>
+            
+                                    <img src="images/outdoor150/outdoor150-1.jpg" alt="Picture of Hammock and Tree's">
+            
+                                </figure>
+            
+                            </div><!--End Div Item -->
+            
+                            <div class="flexitem">
+            
+                                <figure>
+            
+                                    <img src="images/outdoor150/outdoor150-2.jpg" alt="Picture of kettle over outdoor fire">
+            
+                                </figure>
+            
+                            </div><!--End Div Item -->
+            
+                            <div class="flexitem">
+            
+                                <figure>
+            
+                                    <img src="images/outdoor150/outdoor150-3.jpg" alt="Picture of backpacks on rocks">
+            
+                                </figure>
+            
+                            </div><!--End Div Item -->
+            
+                            <div class="flexitem">
+            
+                                <figure>
+            
+                                    <img src="images/outdoor150/outdoor150-4.jpg" alt="Picture of kid paddleboarding">
+            
+                                </figure>
+            
+                            </div><!--End Div Item -->
+            
+                            <div class="flexitem">
+            
+                                <figure>
+            
+                                    <img src="images/outdoor150/outdoor150-5.jpg" alt="Picture of outdoor kettle and other metal items">
+            
+                                </figure>
+            
+                            </div><!--End Div Item -->
+
+                            <div class="flexitem">
+        
+                                <figure>
+        
+                                    <img src="images/addedbybrendan/montana.jpeg" alt="Picture of Moose in Montana">
+        
+                                </figure>
+        
+                            </div><!--End Div Item -->
+
+                            <div class="flexitem">
+            
+                                <figure>
+            
+                                    <img src="images/outdoor150/outdoor150-6.jpg" alt="A picture of a charcuterie board outside">
+            
+                                </figure>
+            
+                            </div><!--End Div Item -->
+
+                            <div class="flexitem">
+            
+                                <figure>
+        
+                                    <img src="images/outdoor150/outdoor150-7.jpg" alt="Picture of outdoors equipment">
+        
+                                </figure>
+        
+                            </div><!--End Div Item -->
+
+                            <div class="flexitem">
+        
+                                <figure>
+        
+                                    <img src="images/outdoor150/outdoor150-8.jpg" alt="Picture of friends enjoying fire">
+        
+                                </figure>
+        
+                            </div><!--End Div Item -->
+
+                            <div class="flexitem">
+        
+                                <figure>
+        
+                                    <img src="images/outdoor150/outdoor150-9.jpg" alt="Picture of tent and trailer">
+        
+                                </figure>
+        
+                            </div><!--End Div Item -->
+
+                            <div class="flexitem">
+        
+                                <figure>
+        
+                                    <img src="images/outdoor150/outdoor150-10.jpg" alt="Picture of Kayak on calm lake">
+        
+                                </figure>
+        
+                            </div><!--End Div Item -->
+
+                            <div class="flexitem">
+        
+                                <figure>
+        
+                                    <img src="images/outdoor150/outdoor150-11.jpg" alt="Gopro photo of two friends kayaking">
+        
+                                </figure>
+        
+                            </div><!--End Div Item -->
+
+                            <div class="flexitem">
+        
+                                <figure>
+        
+                                    <img src="images/outdoor150/outdoor150-12.jpg" alt="Picture of abunch of Kayaks">
+        
+                                </figure>
+        
+                            </div><!--End Div Item -->
+
+                            <div class="flexitem">
+        
+                                <figure>
+        
+                                    <img src="images/addedbybrendan/muskoka.jpeg" alt="Muskoka Water">
+        
+                                </figure>
+        
+                            </div><!--End Div Item -->
+                            
+                        </div> <!--Ends flexcontainer class-->
+
+                        <div class="credit">
+
+                            <h6 class="credits">
+                                Credits:
+                            
+                                <br>
+                                Text content was obtained from appropriate Wikipedia pages. Images were obtained from Unsplash.com, social media buttons were generated at iconmonstr.com, and and social media buttons were generated from iconmonstr.com. License agreements for images do not require citation for non profit use. Additional three images were obtained from: cottagelife.com, visittheusa.ca, and wikipedia.
+                            </h6>
+
+                        </div> <!--Ends credit div class-->
+
+
+                    </div><!--end gallery class --> 
+
+                <footer>
+
+                    <div class="footerGrid">
+
+                        <div class="aboutUs" id="aboutUs">
+
+                            <h4>
+                                <strong> About us </strong>
+                            </h4>
+
+                            <p>
+                                Who we are 
+                                <br>
+                                What we stand for 
+                                <br>
+                                How you can help
+                            </p>
+
+                        </div> <!--Ends aboutUs class-->
+
+                        <div class="travel">
+
+                            <h3>
+                                <strong> Travel Time </strong>
+                            </h3>
+
+                            <div class="travelMedia">
+                                
+                                <a href="https://twitter.com" target="_blank">
+
+                                    <img src="images/socialmedia/twitter32.png" alt="Twitter"> </a>
+                                
+                                <a href="https://instagram.com" target="_blank">
+
+                                    <img src="images/socialmedia/instagram32.png" alt="Instagram"> </a>
+
+                                <a href="https://pinterest.com" target="_blank">
+
+                                    <img src="images/socialmedia/pinterest32.png" alt="Pinterest"> </a>
+
+                                <a href="https://youtube.com" target="_blank">
+
+                                    <img src="images/socialmedia/youtube32.png" alt="Youtube"> </a>
+
+                                <a href="mailto:info@example.com">
+
+                                    <img src="images/socialmedia/emailat32.png" alt="Email Us"> </a>
+
+                            </div> <!--Ends travelMedia class-->
+
+                        </div> <!--Ends travel class-->
+
+                            <div class="seminars" id="seminars">
+
+                                <h4>
+                                    <strong> Seminars </strong>
+                                </h4>
+
+                                <p>
+                                    Trip Planning
+                                    <br>
+                                    Hiking
+                                    <br>
+                                    Camping
+                                </p>
+
+                            </div> <!--Ends seminars class-->
+
+                            <div class="countries" id="countries">
+
+                                <h4>
+                                    Countries
+                                </h4>
+
+                                <p>
+                                    Belgium
+                                    <br>
+                                    Canada
+                                    <br>
+                                    China
+                                    <br>
+                                    Copenhagen
+                                    <br>
+                                    Cyprus
+                                    <br>
+                                    Greece
+                                    <br>
+                                    India
+                                    <br>
+                                    Italy
+                                    <br>
+                                    Japan
+                                    <br>
+                                    New Zealand 
+                                    <br>
+                                    Nigeria
+                                    <br>
+                                    Turkey 
+                                    <br>
+                                    United States
+                                </p>
+                            </div> <!--Ends countries class-->
+
+                    </div> <!--Ends footer grid class-->
+
+
+                </footer>
+
+                <!--Pictures added by me links: https://cottagelife.com, https://www.visittheusa.ca/state/montana, https://en.wikipedia.org/wiki/Muskoka_Lakes-->

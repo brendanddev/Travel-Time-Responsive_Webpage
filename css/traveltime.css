@@ -1,0 +1,93 @@
+/* Author: Brendan Dileo, 000879513 */
+
+/* Header */
+
+.headergrid { /* Header Grid, two rows, four columns */
+    display: grid;
+    grid-template-rows: auto;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+.traveltimeheader {
+    grid-row: 1;
+    grid-column: 1;
+}
+
+.signinheader {
+    grid-row: 1;
+    grid-column: 4;
+    margin-top: 12px;
+}
+
+.signinheader p {
+    padding: 5px 15px; 
+    background-color: #0172BA;
+    color: white; 
+    border: 1px solid #0172BA;
+    border-radius: 20px;
+    text-align: center; 
+    cursor: pointer; 
+    float: right;
+}
+
+.signinheader p:hover {
+    background-color: #089247;
+}
+
+/* Nav */ 
+
+nav {
+    grid-row: 2;
+    grid-column: 1 / span 4;
+    align-items: center;
+    line-height: 25px;
+    width: 100%;
+    position: sticky;
+    top: 0;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    background-color: #ECF7FE;
+    text-align: center;
+    border: 1px solid #0172BA;
+}
+
+nav li {
+    display: inline-block;
+    margin: 10px;
+    padding: 4px 16px;
+    color: #0172BA;
+    border: 2px solid #0172BA;
+    background-color: white;
+    border-bottom-right-radius: 30px;
+    border-top-left-radius: 30px;
+    cursor: pointer; 
+}
+
+nav a {
+    text-decoration: none;
+}
+
+nav li:hover {
+    background-color: #ECF7FE ;
+}
+
+/* Footer */
+
+footer {
+    margin: 0;
+    padding: 0;
+    background-image:url(../images/newhampshire.jpg);
+    background-size: cover;
+
+}
+
+.footerGrid { 
+    display: grid;
+    grid-template-rows: 0.5fr 0.5fr 1.5fr ;
+    grid-template-columns: 1.5fr 2fr 1.5fr;
+    margin: 0 1.5em;
+}
